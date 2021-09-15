@@ -5,7 +5,7 @@ import Home from './Components/Home';
 import Contact from './Components/Contact';
 import Featured from './Components/Featured';
 import About from './Components/About';
-import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Switch, Route, withRouter } from 'react-router-dom';
 
 
 
@@ -15,10 +15,11 @@ function App() {
       <div className="App">
         <Nav />
         <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/" component={Contact} />
-          <Route path="/" component={About} />
-          <Route path="/" component={Featured} />
+          <Route path="/home" component={Home} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/featured"  component={Featured} />
+          <Redirect to='/home' />
         </Switch>
       </div>
     </Router>
